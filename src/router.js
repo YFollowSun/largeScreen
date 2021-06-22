@@ -85,6 +85,14 @@ export default new Router({
                 hidden: true,
             },
             {
+                path: '/threshold',
+                name: ' 超出阈值',
+                id: 103002,
+                component: () =>
+                    import ('./views/transportation/subSystem/threshold.vue'),
+                hidden: true,
+            },
+            {
                 path: '/mainAdit',
                 name: ' 主平硐皮带',
                 id: 1031,

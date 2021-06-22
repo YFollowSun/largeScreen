@@ -5,8 +5,8 @@
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item :to="{ path: '/transportation'}">主运输系统</el-breadcrumb-item>
             <el-breadcrumb-item :to="{ path: '/transportation'}">系统数据</el-breadcrumb-item>
-            <el-breadcrumb-item >煤中央皮带</el-breadcrumb-item>
-            <el-breadcrumb-item >皮带本体</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/coalCentral'}">煤中央皮带</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/belt_body'}">皮带本体</el-breadcrumb-item>
             <el-breadcrumb-item >详细数据</el-breadcrumb-item>
         </el-breadcrumb>
         <span class="text">数据测点：</span>
