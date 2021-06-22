@@ -1,63 +1,63 @@
 <template>
-  <el-dialog :visible.sync="visible" width="80%">
- 
-    <el-form :inline="true">
-           <span style="font-size: 17px;">数据质量信息：</span>
-            <el-select v-model="value" placeholder="点击选择元数据版本">
-              <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
-              </el-option>
-            </el-select>
-
-    </el-form>
-          
+    <el-dialog :visible.sync="visible" width="80%">
+   
+      <el-form :inline="true">
+             <span style="font-size: 17px;">数据质量信息：</span>
+              <el-select v-model="value" placeholder="点击选择元数据版本">
+                <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                </el-option>
+              </el-select>
   
-
-      <el-main>
-        <el-col :span="18">
-          
-           
-              <el-table :data="tableData" style="width: 100%" border stripe>
-                <el-table-column label="完整性" header-align="center">
-                  <el-table-column prop="point1" label="测点" header-align="center" align="center" width="140">
-                  </el-table-column>
-                  <el-table-column prop="isExisted" label="数据是否存在" header-align="center" align="center" width="60">
-                  </el-table-column>
-                </el-table-column>
-                <el-table-column label="准确性" header-align="center">
-                  <el-table-column prop="data_type" label="数据类型" header-align="center" align="center" width="80">
-                  </el-table-column>
-                  <el-table-column prop="range" label="阈值范围" header-align="center" align="center" width="130">
-                  </el-table-column>
-                  <el-table-column prop="unit" label="数据单位" header-align="center" align="center" width="70">
-                  </el-table-column>
-                  <el-table-column prop="rationality" label="数据合理性" header-align="center" align="center" width="70">
-                  </el-table-column>
-                  <el-table-column prop="storage_len" label="数据存储长度" header-align="center" align="center" width="70">
-                  </el-table-column>
-                </el-table-column>
-                <el-table-column label="时效性" header-align="center">
-                  <el-table-column prop="frequency" label="采集频率" header-align="center" align="center" width="60">
-                  </el-table-column>
-                </el-table-column>
-              </el-table>
+      </el-form>
+            
     
-
-</el-col>
-
-<el-col :span="6">
-    <mailTable style="margin-top: 185px;margin-left: 10px;" :tableData="versionTableData" :tableStyle="{ width:'200px'}"></mailTable>
-</el-col>
-</el-main>
-
-
-
-
-
-</el-dialog>
-</template>
+  
+        <el-main>
+          <el-col :span="18">
+            
+             
+                <el-table :data="tableData" style="width: 100%" border stripe>
+                  <el-table-column label="完整性" header-align="center">
+                    <el-table-column prop="point1" label="测点" header-align="center" align="center" width="140">
+                    </el-table-column>
+                    <el-table-column prop="isExisted" label="数据是否存在" header-align="center" align="center" width="60">
+                    </el-table-column>
+                  </el-table-column>
+                  <el-table-column label="准确性" header-align="center">
+                    <el-table-column prop="data_type" label="数据类型" header-align="center" align="center" width="80">
+                    </el-table-column>
+                    <el-table-column prop="range" label="阈值范围" header-align="center" align="center" width="130">
+                    </el-table-column>
+                    <el-table-column prop="unit" label="数据单位" header-align="center" align="center" width="70">
+                    </el-table-column>
+                    <el-table-column prop="rationality" label="数据合理性" header-align="center" align="center" width="70">
+                    </el-table-column>
+                    <el-table-column prop="storage_len" label="数据存储长度" header-align="center" align="center" width="70">
+                    </el-table-column>
+                  </el-table-column>
+                  <el-table-column label="时效性" header-align="center">
+                    <el-table-column prop="frequency" label="采集频率" header-align="center" align="center" width="60">
+                    </el-table-column>
+                  </el-table-column>
+                </el-table>
+      
+  
+  </el-col>
+  
+  <el-col :span="6">
+      <mailTable style="margin-top: 185px;margin-left: 10px;" :tableData="versionTableData" :tableStyle="{ width:'200px'}"></mailTable>
+  </el-col>
+  </el-main>
+  
+  
+  
+  
+  
+  </el-dialog>
+  </template>
 
 <script>
-    import mailTable from "./tableComponent";
+    import mailTable from "@/views/tableComponent";
     export default {
         name: "dataQuality",
         data() {
