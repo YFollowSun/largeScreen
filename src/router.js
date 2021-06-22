@@ -77,6 +77,14 @@ export default new Router({
                 hidden: true,
             },
             {
+                path: '/detail',
+                name: ' 详细信息',
+                id: 103001,
+                component: () =>
+                    import ('./views/transportation/subSystem/beltbody/detail.vue'),
+                hidden: true,
+            },
+            {
                 path: '/mainAdit',
                 name: ' 主平硐皮带',
                 id: 1031,

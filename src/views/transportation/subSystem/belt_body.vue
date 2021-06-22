@@ -16,7 +16,7 @@
                     <span class="text">牵引方向</span></br>
                     <el-button type="primary">选择数据范围</el-button></br>
                     <el-button type="primary" >数据分析</el-button></br>
-                    <el-button type="primary">详细数据</el-button></br>
+                    <el-button type="primary" @click="openDetail()">详细数据</el-button></br>
                 </div>
             </el-col>
             <el-col :span="14">
@@ -158,6 +158,12 @@
             //监听 页码值 改变的事件
             handleCurrentChange(newPage) {
                 console.log(newPage)
+            },
+            // 打开详细数据页面
+            openDetail() {
+                this.$router.push({
+                    path: '/detail'
+                })
             }
         }
     }
