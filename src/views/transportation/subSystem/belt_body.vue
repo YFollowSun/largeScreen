@@ -4,7 +4,7 @@
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item :to="{ path: '/transportation'}">主运输系统</el-breadcrumb-item>
             <el-breadcrumb-item :to="{ path: '/transportation'}">系统数据</el-breadcrumb-item>
-            <el-breadcrumb-item >煤中央皮带</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/coalCentral'}">煤中央皮带</el-breadcrumb-item>
             <el-breadcrumb-item >皮带本体</el-breadcrumb-item>
         </el-breadcrumb>
 
@@ -14,13 +14,17 @@
             <el-col :span="4">
                 <div class="block">
                     <span class="text">牵引方向</span></br>
-                    <el-button type="primary">选择数据范围</el-button></br>
-                    <el-button type="primary" >数据分析</el-button></br>
-                    <el-button type="primary">详细数据</el-button></br>
+                    <el-select style="width: 120px; margin-left: 25px" v-model="dataRange" placeholder="请选择数据范围">
+                        <el-option v-for="item in dataRangeItems" :key="item.value" :label="item.label" :value="item.value">
+                        </el-option>
+                    </el-select>
+                    <el-button type="primary" @click="dataAnalysis()">数据分析</el-button>
+                    <el-button type="primary" @click="openDetail()">详细数据</el-button>
                 </div>
             </el-col>
             <el-col :span="14">
                 <div class="block">
+                    <span class="threshold" @click="beyondthreshold()">超出阈值：0.83</span>
                     <direction></direction>
                 </div>
 
@@ -49,6 +53,7 @@
             </el-col>
             <el-col :span="14">
                 <div class="block">
+                    <span class="threshold">超出阈值：0.83</span>
                     <pull_status></pull_status>
                 </div>
 
@@ -77,6 +82,7 @@
             </el-col>
             <el-col :span="14">
                 <div class="block">
+                    <span class="threshold">超出阈值：0.83</span>
                     <speed_status></speed_status>
                 </div>
 
@@ -105,6 +111,7 @@
             </el-col>
             <el-col :span="14">
                 <div class="block">
+                    <span class="threshold">超出阈值：0.83</span>
                     <pulling_speed></pulling_speed>
                 </div>
 
@@ -125,9 +132,12 @@
 <!-- 分页区域 -->
 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="4">
 </el-pagination>
+<analysisDia v-if="moreVisible" ref="moreDialog"></analysisDia>
     </div>
+   
 </template>
 <script>
+    import analysisDia from "./analysisDia.vue";
     import direction from '@/components/transportation/coalCentral/belt_body/direction.vue'
     import pull_status from '@/components/transportation/coalCentral/belt_body/pull_status.vue'
     import pulling_speed from '@/components/transportation/coalCentral/belt_body/pulling_speed.vue'
@@ -140,14 +150,30 @@
                 danger: '较低',
                 normal_time: '9天',
                 total_time: '20s',
-                currentPage4: 4
+                currentPage4: 4,
+                dataRange: '',
+                dataRangeItems: [{
+                    value: '选项1',
+                    label: '10分钟'
+                }, {
+                    value: '选项2',
+                    label: '1小时'
+                }, {
+                    value: '选项3',
+                    label: '6小时'
+                }, {
+                    value: '选项4',
+                    label: '近1天'
+                }],
+                moreVisible: false
             }
         },
         components: {
             direction,
             pull_status,
             pulling_speed,
-            speed_status
+            speed_status,
+            analysisDia
 
         },
         methods: {
@@ -158,6 +184,24 @@
             //监听 页码值 改变的事件
             handleCurrentChange(newPage) {
                 console.log(newPage)
+            },
+            // 打开详细数据页面
+            openDetail() {
+                this.$router.push({
+                    path: '/detail'
+                })
+            },
+            dataAnalysis() {
+                this.moreVisible = true;
+                this.$nextTick(() => {
+                    this.$refs.moreDialog.init();
+                });
+            },
+            // 超出阈值
+            beyondthreshold() {
+                this.$router.push({
+                    path: '/threshold'
+                })
             }
         }
     }
@@ -189,6 +233,14 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-weight: bolder;
         margin-left: 50px;
+    }
+    
+    .threshold {
+        font-size: 13px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin-left: 520px;
+        color: red;
+        cursor: pointer;
     }
     
     .info {

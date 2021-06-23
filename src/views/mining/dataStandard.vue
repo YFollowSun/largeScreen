@@ -1,17 +1,12 @@
+<!-- 主运输系统 数据标准页面 -->
 <template>
-  <el-container>
-    <el-header style="height: 20px;">
-      <div v-if="this.$router.currentRoute.path=='/coal_mining'">
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item :to="{ path: '/coal_mining'}">采煤工作面</el-breadcrumb-item>
-          <el-breadcrumb-item>数据标准</el-breadcrumb-item>
-        </el-breadcrumb>
-      </div>
-    </el-header>
-
-    <el-main>
-      <el-form>
+<div>
+    <el-breadcrumb separator-class="el-icon-arrow-right">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/coal_mining'}">采煤工作面</el-breadcrumb-item>
+        <el-breadcrumb-item>数据标准</el-breadcrumb-item>
+      </el-breadcrumb>
+    <el-form>
         <el-form-item>
           <span style="font-size: 10px;">搜索：</span>
           <el-select v-model="value" placeholder="请选择子系统">
@@ -22,35 +17,36 @@
       </el-form>
 
       <el-card>
-        <el-table :data="tableData" style="width: 100%" border stripe  @cell-click="addcoalSystem">
-          <el-table-column type="index" label="#" header-align="center" align="center" width="80">
-          </el-table-column>
-          <el-table-column prop="device_name" label="设备名称" header-align="center" align="center" width="180">
-          </el-table-column>
-          <el-table-column prop="describe" label="描述" header-align="center" align="center" width="500">
-          </el-table-column>
-          <el-table-column prop="remark" label="备注" header-align="center" align="center" width="180">
-          </el-table-column>
-        </el-table>
-        <!-- 分页区域 -->
-        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                       :current-page="currentPage1" :page-sizes="[1, 2, 5, 10]" :page-size="1"
-                       layout="total, sizes, prev, pager, next, jumper" :total="9">
-        </el-pagination>
-      </el-card>
+        <el-table :data="deviceData" style="width: 100%" border stripe>
+            <el-table-column type="index" label="#" header-align="center" align="center" width="60">
+            </el-table-column>
+            <el-table-column prop="device_name" label="设备名称" header-align="center" align="center" width="150">
+            </el-table-column>
+            <el-table-column prop="describe" label="描述" header-align="center" align="center" width="500">
+            </el-table-column>
+            <el-table-column label="操作" header-align="center" align="center" width="150">
+                <template slot-scope="scope">
+                    <el-button type="text" size="small" @click="watchDevice(scope.row)">查看</el-button>
+                </template>
+</el-table-column>
+<el-table-column prop="remark" label="备注" header-align="center" align="center" width="150">
+</el-table-column>
 
-      <dataQuality v-if="checkVisible" ref="dataQuality"></dataQuality>
-    </el-main>
-  </el-container>
+</el-table>
+
+<!-- 分页区域 -->
+<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="5">
+</el-pagination>
+</el-card>
+<watchDevice v-if="watchVisible" ref="watchdevice"></watchDevice>
+</div>
 </template>
-
 <script>
-    import dataQuality from "./dataQuality";
+    import watchDevice from './watchDevice.vue'
     export default {
         name: "dataStandard",
         data() {
             return {
-                // visible: true,
                 options: [{
                     value: '选项1',
                     label: '煤中央皮带'
@@ -62,23 +58,7 @@
                     label: '上仓皮带'
                 }],
                 value: '',
-                subsystems: [{
-                    title: '地址',
-                    num: '王家岭'
-                }, {
-                    title: '产量',
-                    num: '25万吨'
-                }, {
-                    title: '煤质',
-                    num: '精煤'
-                }, {
-                    title: '灾害类型',
-                    num: '水灾'
-                }, {
-                    title: '服务年份',
-                    num: '10年'
-                }],
-                tableData: [{
+                deviceData: [{
                     device_name: '皮带本体',
                     describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
                     remark: '暂无'
@@ -95,36 +75,15 @@
                     describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
                     remark: '暂无'
                 }, {
-                    device_name: '中部4#驱动电机',
+                    device_name: '头部4#驱动电机',
                     describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '中部5#驱动电机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '中部6#驱动电机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '1#滚筒',
-                    describe: '无',
-                    remark: '暂无'
-                }, {
-                    device_name: '2#滚筒',
-                    describe: '无',
                     remark: '暂无'
                 }],
-
-                currentPage1: 1,
-                currentPage2: 2,
-                currentPage3: 3,
-                currentPage4: 4,
-                checkVisible: false
+                watchVisible: false,
+                currentPage4: 4
             }
         },
         methods: {
-            // 监听 pagesize 改变的事件
             handleSizeChange(newSize) {
                 console.log(newSize)
             },
@@ -132,29 +91,18 @@
             handleCurrentChange(newPage) {
                 console.log(newPage)
             },
-            // init(id) {
-            //
-            //   this.visible = true;
-            //
-            // },
-            addcoalSystem(row, column) {
-                if (column.label == "设备名称") {
-                    this.checkVisible = true;
-                    // console.log(this.checkVisible);
-                    this.$nextTick(() => {
-                        this.$refs.dataQuality.init();
-                    });
-                }
+            watchDevice(row) {
+                this.watchVisible = true;
+                this.$nextTick(() => {
+                    this.$refs.watchdevice.init();
+                });
             },
         },
         components: {
-            dataQuality
+            watchDevice
         }
-
     }
 </script>
-
-
-<style scoped>
+<style>
 
 </style>

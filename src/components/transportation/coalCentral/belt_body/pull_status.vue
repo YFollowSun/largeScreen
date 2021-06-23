@@ -44,7 +44,7 @@
                         data: ['单位：m/s']
                     },
                     grid: {
-                        top: '15%',
+                        top: '3%',
                         left: '1%',
                         right: '4%',
                         bottom: '3%',
@@ -111,7 +111,16 @@
                         showSymbol: false,
                         // 设置拐点颜色以及边框
                         itemStyle: {
-                            color: "#0184d5",
+                            normal: {
+                                label: {
+                                    show: true,
+                                    formatter: " {c}",
+                                    textStyle: {
+                                        color: '#00aaff'
+                                    }
+                                }
+                            },
+                            color: "#55ffff",
                             borderColor: "rgba(0, 170, 255, 0.1)",
                             borderWidth: 6
                         },
