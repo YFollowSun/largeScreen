@@ -53,14 +53,25 @@ export default new Router({
                 hidden: false,
 
             }, {
-                path: '/transportation',
-                name: ' 主运输系统',
-                id: 103,
+            path: '/checkSubSys',
+            name: '查看子系统',
+            hidden: true,
+            component: () =>
+                import('./views/monitor/checkSubSys.vue')
+            }, {
+                path: '/checkCheckPoint',
+                name: '查看测点数据',
+                hidden: true,
                 component: () =>
-                    import ('./views/transportation/transportation.vue'),
-                hidden: false,
-            },
-            {
+                    import('./views/monitor/checkCheckPoint.vue')
+            }, {
+                    path: '/transportation',
+                    name: ' 主运输系统',
+                    id: 103,
+                    component: () =>
+                        import ('./views/transportation/transportation.vue'),
+                    hidden: false,
+            }, {
                 path: '/coalCentral',
                 name: ' 煤中央皮带',
                 id: 1030,
