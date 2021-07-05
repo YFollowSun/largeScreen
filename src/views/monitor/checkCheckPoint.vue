@@ -141,98 +141,99 @@
 </template>
 
 <script>
-  import direction from '@/components/mining/main_bump/direction.vue'
-  import pull_status from '@/components/mining/main_bump/pull_status.vue'
-  import pulling_speed from '@/components/mining/main_bump/pulling_speed.vue'
-  import speed_status from '@/components/mining/main_bump/speed_status.vue'
-  export default {
-    name: "checkCheckPoint",
-    data() {
-      return {
-        check_point_name: '',
-        sub_system_name: '',
-        health: '健康',
-        danger: '较低',
-        normal_time: '9天',
-        total_time: '20s'
-      }
-    },
-    components: {
-      direction,
-      pull_status,
-      pulling_speed,
-      speed_status
+    import direction from '@/components/mining/main_bump/direction.vue'
+    import pull_status from '@/components/mining/main_bump/pull_status.vue'
+    import pulling_speed from '@/components/mining/main_bump/pulling_speed.vue'
+    import speed_status from '@/components/mining/main_bump/speed_status.vue'
+    export default {
+        name: "checkCheckPoint",
+        data() {
+            return {
+                check_point_name: '',
+                sub_system_name: '',
+                health: '健康',
+                danger: '较低',
+                normal_time: '9天',
+                total_time: '20s'
+            }
+        },
+        components: {
+            direction,
+            pull_status,
+            pulling_speed,
+            speed_status
 
-    },
-    methods: {
-      // 监听 pagesize 改变的事件
-      handleSizeChange(newSize) {
-        console.log(newSize)
-      },
-      //监听 页码值 改变的事件
-      handleCurrentChange(newPage) {
-        console.log(newPage)
-      },
-      back() {
-        // this.$router.go(-1);
+        },
+        methods: {
+            // 监听 pagesize 改变的事件
+            handleSizeChange(newSize) {
+                console.log(newSize)
+            },
+            //监听 页码值 改变的事件
+            handleCurrentChange(newPage) {
+                console.log(newPage)
+            },
+            back() {
+                // this.$router.go(-1);
 
-        console.log(this.sub_system_name)
-        this.$router.push({
-          path: '/checkSubSys',
-          name: '查看子系统',
-          params: {
-            key: 'key',
-            value: this.sub_system_name
-          }
-        })    }
-    },
-    mounted() {
-      this.check_point_name = this.$route.params.value[0];
-      this.sub_system_name = this.$route.params.value[1];
+                console.log(this.sub_system_name)
+                this.$router.push({
+                    path: '/checkSubSys',
+                    name: '查看子系统',
+                    params: {
+                        key: 'key',
+                        value: this.sub_system_name
+                    }
+                })
+            }
+        },
+        mounted() {
+            this.check_point_name = this.$route.params.value[0];
+            this.sub_system_name = this.$route.params.value[1];
+        }
     }
-}
 </script>
 
 <style scoped>
-  .divi {
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 6px 0;
-    background-color: #dcdfe6;
-    position: relative;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-
-  .block {
-    height: 140px;
-    /* background-color: burlywood */
-  }
-
-  .el-button {
-    margin: 3px;
-    margin-left: 25px;
-    width: 120px;
-  }
-
-  .text {
-    font-size: 13px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bolder;
-    margin-left: 50px;
-  }
-
-  .info {
-    font-size: 13px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-
-  .el-card {
-    background: #ffffff;
-    border-radius: 8px;
-    width: 180px;
-    height: 120px;
-    margin-top: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
-  }
+    .divi {
+        display: block;
+        height: 1px;
+        width: 100%;
+        margin: 10px 0px 10px 0px;
+        background-color: #dcdfe6;
+        position: relative;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .block {
+        height: 140px;
+        /* background-color: burlywood */
+    }
+    
+    .el-button {
+        margin: 3px;
+        margin-left: 25px;
+        width: 120px;
+    }
+    
+    .text {
+        font-size: 13px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bolder;
+        margin-left: 50px;
+    }
+    
+    .info {
+        font-size: 13px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .el-card {
+        background: #ffffff;
+        border-radius: 8px;
+        width: 180px;
+        height: 120px;
+        margin-top: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+    }
 </style>

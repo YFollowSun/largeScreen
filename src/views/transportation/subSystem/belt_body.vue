@@ -133,10 +133,12 @@
 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="4">
 </el-pagination>
 <analysisDia v-if="moreVisible" ref="moreDialog"></analysisDia>
-    </div>
+<beltbodyRow style="margin-top: 185px;margin-left: 10px;" :property="property" :health="health" :danger="danger" :normal_time="normal_time" :total_time="total_time"></beltbodyRow>
+    </div> 
    
 </template>
 <script>
+    // import beltbodyRow from "@/views/transportation/subSystem/beltbody/beltbodyRow.vue";
     import analysisDia from "./analysisDia.vue";
     import direction from '@/components/transportation/coalCentral/belt_body/direction.vue'
     import pull_status from '@/components/transportation/coalCentral/belt_body/pull_status.vue'
@@ -146,6 +148,7 @@
         name: "coalcutter",
         data() {
             return {
+                property: "牵引方向",
                 health: '健康',
                 danger: '较低',
                 normal_time: '9天',
@@ -173,7 +176,8 @@
             pull_status,
             pulling_speed,
             speed_status,
-            analysisDia
+            analysisDia,
+            beltbodyRow
 
         },
         methods: {

@@ -14,20 +14,25 @@
 
 
 <script>
-  import dataStandard from "./dataStandard";
-  import systemData from "./systemData";
+    import dataStandard from "./dataStandard";
+    import systemData from "./systemData";
     export default {
         name: "tunnelling",
-      data() {
-        return {
-          activeName: 'first',
-          checkVisible: 'false'
-        };
-      },
-      components: {
-        dataStandard,
-        systemData
-      }
+        data() {
+            return {
+                activeName: 'first',
+                checkVisible: 'false'
+            };
+        },
+        methods: {
+            handleClick(tab, event) {
+                console.log(tab, event);
+            }
+        },
+        components: {
+            dataStandard,
+            systemData
+        }
     }
 </script>
 

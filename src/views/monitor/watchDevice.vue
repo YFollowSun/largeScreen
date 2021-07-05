@@ -176,7 +176,6 @@
         components: {
             mailTable
         }
-
     }
 </script>
 
