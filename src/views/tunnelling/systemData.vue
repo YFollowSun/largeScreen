@@ -40,79 +40,88 @@
 </template>
 
 <script>
-export default {
-  name: "systemData",
-  data(){
-    return {
-      options: [{
-        title: '总数据量',
-        num: '1.2T'
-      }, {
-        title: '系统个数',
-        num: '8个'
-      }, {
-        title: '子系统个数',
-        num: '12个'
-      }, {
-        title: '设备个数',
-        num: '125个'
-      }],
-      tableData: [{
-        device_name: '综掘机',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: '转载机',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: '装煤机',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: '局部扇风机',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: '锚索钻机',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: 'xxx',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: 'xxx',
-        describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-        remark: '暂无'
-      }, {
-        device_name: 'xxx',
-        describe: '无',
-        remark: '暂无'
-      }, {
-        device_name: 'xxx',
-        describe: '无',
-        remark: '暂无'
-      }],
+    export default {
+        name: "systemData",
+        data() {
+            return {
+                options: [{
+                    title: '总数据量',
+                    num: '1.2T'
+                }, {
+                    title: '系统个数',
+                    num: '8个'
+                }, {
+                    title: '子系统个数',
+                    num: '12个'
+                }, {
+                    title: '设备个数',
+                    num: '125个'
+                }],
+                tableData: [{
+                    sub_system_name: '综掘机',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: '转载机',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: '装煤机',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: '局部扇风机',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: '锚索钻机',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: 'xxx',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: 'xxx',
+                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: 'xxx',
+                    describe: '无',
+                    remark: '暂无'
+                }, {
+                    sub_system_name: 'xxx',
+                    describe: '无',
+                    remark: '暂无'
+                }],
 
-      currentPage1: 1,
-      currentPage2: 2,
-      currentPage3: 3,
-      currentPage4: 4,
-      checkVisible: false
+                currentPage1: 1,
+                currentPage2: 2,
+                currentPage3: 3,
+                currentPage4: 4,
+                checkVisible: false
+            }
+        },
+        methods: {
+            handleSizeChange(newSize) {
+                // console.log(newSize)
+            },
+            //监听 页码值 改变的事件
+            handleCurrentChange(newPage) {
+                // console.log(newPage)
+            }
+        }
     }
-  }
-}
 </script>
 
 <style scoped>
-  .coalblock {
-    width: 115px;
-    height: 77px;
-    border: solid 1px #dcdfe6;
-    padding-top: 20px;
-    margin-left: 25px;
-    text-align: center;
-    display: inline-block;
-  }
+    .coalblock {
+        width: 115px;
+        height: 77px;
+        border: solid 1px #dcdfe6;
+        padding-top: 20px;
+        margin-left: 25px;
+        text-align: center;
+        display: inline-block;
+    }
 </style>

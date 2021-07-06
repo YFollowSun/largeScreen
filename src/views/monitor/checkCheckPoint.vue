@@ -159,6 +159,7 @@
 </template>
 
 <script>
+
   import direction from '@/components/mining/main_bump/direction.vue'
   import pull_status from '@/components/mining/main_bump/pull_status.vue'
   import pulling_speed from '@/components/mining/main_bump/pulling_speed.vue'
@@ -237,49 +238,49 @@
       this.check_point_name = this.$route.params.value[0];
       this.sub_system_name = this.$route.params.value[1];
     }
-}
+  }
 </script>
 
 <style scoped>
-  .divi {
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 6px 0;
-    background-color: #dcdfe6;
-    position: relative;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+    .divi {
+        display: block;
+        height: 1px;
+        width: 100%;
+        margin: 10px 0px 10px 0px;
+        background-color: #dcdfe6;
+        position: relative;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 
-  .block {
-    height: 140px;
-    /* background-color: burlywood */
-  }
+    .block {
+        height: 140px;
+        /* background-color: burlywood */
+    }
 
-  .el-button {
-    margin: 3px;
-    margin-left: 25px;
-    width: 120px;
-  }
+    .el-button {
+        margin: 3px;
+        margin-left: 25px;
+        width: 120px;
+    }
 
-  .text {
-    font-size: 13px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bolder;
-    margin-left: 50px;
-  }
+    .text {
+        font-size: 13px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: bolder;
+        margin-left: 50px;
+    }
 
-  .info {
-    font-size: 13px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+    .info {
+        font-size: 13px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
 
-  .el-card {
-    background: #ffffff;
-    border-radius: 8px;
-    width: 180px;
-    height: 120px;
-    margin-top: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
-  }
+    .el-card {
+        background: #ffffff;
+        border-radius: 8px;
+        width: 180px;
+        height: 120px;
+        margin-top: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+    }
 </style>
