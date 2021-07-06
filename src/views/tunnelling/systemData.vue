@@ -104,11 +104,11 @@
         },
         methods: {
             handleSizeChange(newSize) {
-                console.log(newSize)
+                // console.log(newSize)
             },
             //监听 页码值 改变的事件
             handleCurrentChange(newPage) {
-                console.log(newPage)
+                // console.log(newPage)
             }
         }
     }

@@ -9,140 +9,20 @@
         </el-breadcrumb>
 
         <el-divider class="divi"></el-divider>
-        <!-- 第一行 -->
-        <el-row :gutter="20">
-            <el-col :span="4">
-                <div class="block">
-                    <span class="text">牵引方向</span></br>
-                    <el-select style="width: 120px; margin-left: 25px" v-model="dataRange" placeholder="请选择数据范围">
-                        <el-option v-for="item in dataRangeItems" :key="item.value" :label="item.label" :value="item.value">
-                        </el-option>
-                    </el-select>
-                    <el-button type="primary" @click="dataAnalysis()">数据分析</el-button>
-                    <el-button type="primary" @click="openDetail()">详细数据</el-button>
-                </div>
-            </el-col>
-            <el-col :span="14">
-                <div class="block">
-                    <span class="threshold" @click="beyondthreshold()">超出阈值：0.83</span>
-                    <direction></direction>
-                </div>
-
-            </el-col>
-            <el-col :span="6">
-                <div class="block">
-                    <el-card>
-                        <span class="info">设备健康程度:{{health}}</span></br>
-                        <span class="info">安全隐患程度:{{danger}}</span></br>
-                        <span class="info">正常运行:{{normal_time}}</span></br>
-                        <span class="info">数值超标总时长:{{total_time}}</span></br>
-                   </el-card>
-                </div>
-
-            </el-col>
-        </el-row>
-        <!-- 第二行 -->
-        <el-row :gutter="20">
-            <el-col :span="4">
-                <div class="block">
-                    <span class="text">牵引状态</span></br>
-                    <el-button type="primary">选择数据范围</el-button></br>
-                    <el-button type="primary" >数据分析</el-button></br>
-                    <el-button type="primary">详细数据</el-button></br>
-                </div>
-            </el-col>
-            <el-col :span="14">
-                <div class="block">
-                    <span class="threshold">超出阈值：0.83</span>
-                    <pull_status></pull_status>
-                </div>
-
-            </el-col>
-            <el-col :span="6">
-                <div class="block">
-                    <el-card>
-                        <span class="info">设备健康程度:{{health}}</span></br>
-                        <span class="info">安全隐患程度:{{danger}}</span></br>
-                        <span class="info">正常运行:{{normal_time}}</span></br>
-                        <span class="info">数值超标总时长:{{total_time}}</span></br>
-                   </el-card>
-                </div>
-
-            </el-col>
-        </el-row>
-        <!-- 第三行 -->
-        <el-row :gutter="20">
-            <el-col :span="4">
-                <div class="block">
-                    <span class="text">加速状态</span></br>
-                    <el-button type="primary">选择数据范围</el-button></br>
-                    <el-button type="primary" >数据分析</el-button></br>
-                    <el-button type="primary">详细数据</el-button></br>
-                </div>
-            </el-col>
-            <el-col :span="14">
-                <div class="block">
-                    <span class="threshold">超出阈值：0.83</span>
-                    <speed_status></speed_status>
-                </div>
-
-            </el-col>
-            <el-col :span="6">
-                <div class="block">
-                    <el-card>
-                        <span class="info">设备健康程度:{{health}}</span></br>
-                        <span class="info">安全隐患程度:{{danger}}</span></br>
-                        <span class="info">正常运行:{{normal_time}}</span></br>
-                        <span class="info">数值超标总时长:{{total_time}}</span></br>
-                   </el-card>
-                </div>
-
-            </el-col>
-        </el-row>
-        <!-- 第四行 -->
-        <el-row :gutter="20">
-            <el-col :span="4">
-                <div class="block">
-                    <span class="text">牵引速度</span></br>
-                    <el-button type="primary">选择数据范围</el-button></br>
-                    <el-button type="primary" >数据分析</el-button></br>
-                    <el-button type="primary">详细数据</el-button></br>
-                </div>
-            </el-col>
-            <el-col :span="14">
-                <div class="block">
-                    <span class="threshold">超出阈值：0.83</span>
-                    <pulling_speed></pulling_speed>
-                </div>
-
-            </el-col>
-            <el-col :span="6">
-                <div class="block">
-                    <el-card>
-                        <span class="info">设备健康程度:{{health}}</span></br>
-                        <span class="info">安全隐患程度:{{danger}}</span></br>
-                        <span class="info">正常运行:{{normal_time}}</span></br>
-                        <span class="info">数值超标总时长:{{total_time}}</span></br>
-                   </el-card>
-                </div>
-
-            </el-col>
-        </el-row>
-        
+    
+    
 <!-- 分页区域 -->
 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage4" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="4">
 </el-pagination>
-<analysisDia v-if="moreVisible" ref="moreDialog"></analysisDia>
 <beltbodyRow style="margin-top: 185px;margin-left: 10px;" :property="property" :health="health" :danger="danger" :normal_time="normal_time" :total_time="total_time"></beltbodyRow>
     </div> 
    
 </template>
 <script>
     // import beltbodyRow from "@/views/transportation/subSystem/beltbody/beltbodyRow.vue";
-    import analysisDia from "./analysisDia.vue";
-    import direction from '@/components/transportation/coalCentral/belt_body/direction.vue'
     import pull_status from '@/components/transportation/coalCentral/belt_body/pull_status.vue'
     import pulling_speed from '@/components/transportation/coalCentral/belt_body/pulling_speed.vue'
+    import direction from '@/components/transportation/coalCentral/belt_body/direction.vue'
     import speed_status from '@/components/transportation/coalCentral/belt_body/speed_status.vue'
     export default {
         name: "coalcutter",
@@ -176,7 +56,6 @@
             pull_status,
             pulling_speed,
             speed_status,
-            analysisDia,
             beltbodyRow
 
         },
