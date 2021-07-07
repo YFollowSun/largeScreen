@@ -195,6 +195,7 @@
             }
 
         },
+
         mounted() {
             // this.subSystem_name = this.$route.params.value;
             var name = window.sessionStorage.getItem("subDevice_name");

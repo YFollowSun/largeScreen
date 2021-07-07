@@ -96,7 +96,6 @@
                 })
                 window.sessionStorage.setItem("device_name", row.device_name); //存到sessionStorage中，下一个页面获取
             }
-
         },
         mounted() {
             // this.subSystem_name = this.$route.params.value;
