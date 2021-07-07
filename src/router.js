@@ -53,24 +53,24 @@ export default new Router({
                 hidden: false,
 
             }, {
-            path: '/checkSubSys',
-            name: '查看子系统',
-            hidden: true,
-            component: () =>
-                import('./views/monitor/checkSubSys.vue')
+                path: '/checkSubSys',
+                name: '查看子系统',
+                hidden: true,
+                component: () =>
+                    import ('./views/monitor/checkSubSys.vue')
             }, {
                 path: '/checkCheckPoint',
                 name: '查看测点数据',
                 hidden: true,
                 component: () =>
-                    import('./views/monitor/checkCheckPoint.vue')
+                    import ('./views/monitor/checkCheckPoint.vue')
             }, {
-                    path: '/transportation',
-                    name: ' 主运输系统',
-                    id: 103,
-                    component: () =>
-                        import ('./views/transportation/transportation.vue'),
-                    hidden: false,
+                path: '/transportation',
+                name: ' 主运输系统',
+                id: 103,
+                component: () =>
+                    import ('./views/transportation/transportation.vue'),
+                hidden: false,
             }, {
                 path: '/coalCentral',
                 name: ' 煤中央皮带',
@@ -150,6 +150,27 @@ export default new Router({
                 component: () =>
                     import ('./views/drain/drain.vue'),
                 hidden: false,
+            }, {
+                path: '/drainDeviceList',
+                name: '主排水系统设备列表',
+                id: 1060,
+                component: () =>
+                    import ('./views/drain/drainDeviceList.vue'),
+                hidden: true,
+            }, {
+                path: '/drainSubDeviceList',
+                name: '主排水系统子设备列表',
+                id: 1061,
+                component: () =>
+                    import ('./views/drain/drainSubDeviceList.vue'),
+                hidden: true,
+            }, {
+                path: '/drainCheckPoint',
+                name: '主排水系统测点',
+                id: 1062,
+                component: () =>
+                    import ('./views/drain/drainCheckPoint.vue'),
+                hidden: true,
             }, {
                 path: '/power_supply',
                 name: ' 供电系统',
