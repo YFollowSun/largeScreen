@@ -19,7 +19,7 @@
       </div>
 
       <el-card>
-        <el-table :data="tableData" style="width: 100%" border stripe @cell-click="checkSubSys">
+        <el-table :data="tableData" style="width: 100%" border stripe>
           <el-table-column type="index" label="序号" header-align="center" align="center" width="180">
           </el-table-column>
           <el-table-column prop="sub_system_name" label="子系统名称" header-align="center" align="center" width="200">
@@ -28,18 +28,18 @@
           </el-table-column>
           <el-table-column label="操作" header-align="center" align="center" width="180">
             <template slot-scope="scope">
-              <el-button type="text" size="small" @click="watch(scope.row)">查看</el-button>
+              <el-button type="text" size="small" @click="checkSubSysEnv(scope.row)">查看</el-button>
             </template>
-</el-table-column>
-<el-table-column prop="remark" label="备注" header-align="center" align="center" width="180">
-</el-table-column>
-</el-table>
-<!-- 分页区域 -->
-<el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage1" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="9">
-</el-pagination>
-</el-card>
-</el-main>
-</el-container>
+          </el-table-column>
+          <el-table-column prop="remark" label="备注" header-align="center" align="center" width="180">
+          </el-table-column>
+        </el-table>
+        <!-- 分页区域 -->
+        <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage1" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="9">
+        </el-pagination>
+      </el-card>
+    </el-main>
+  </el-container>
 
 </template>
 
@@ -112,29 +112,16 @@
             handleCurrentChange(newPage) {
                 // console.log(newPage)
             },
-            watch(row) {
-                console.log(row.sub_system_name)
+            checkSubSysEnv(row) {
                 this.$router.push({
                     path: '/checkSubSys',
                     name: '查看子系统',
-                    params: {
-                        key: 'key',
-                        value: row.sub_system_name
-                    }
+                    // params: {
+                    //     key: 'key',
+                    //     value: row.sub_system_name
+                    // }
                 })
-            },
-            checkSubSys(row, column) {
-                if (column.label == "子系统名称") {
-                    console.log(row.sub_system_name)
-                    this.$router.push({
-                        path: '/checkSubSys',
-                        name: '查看子系统',
-                        params: {
-                            key: 'key',
-                            value: row.sub_system_name
-                        }
-                    })
-                }
+                window.sessionStorage.setItem("subSystemName", row.sub_system_name)
             }
         }
     }
