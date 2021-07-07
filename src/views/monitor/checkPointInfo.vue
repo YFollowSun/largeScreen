@@ -39,31 +39,31 @@
 </template>
 
 <script>
-import dataGraph from "./dataGraph";
-import direction from "../../components/mining/main_bump/direction";
-export default {
-  name: "checkPointInfo",
-  components: {dataGraph, direction},
-  props: [
-    'name',
-    'health',
-    'danger',
-    'normal_time',
-    'total_time'
-  ],
-  data() {
-    return {
-      // dg: {
-      //   data_unit: "KN",
-      //   Y_scale: "1",
-      //   X_data: ['16:20', '16:21', '16:22', '16:23', '16:24', '16:25', '16:26', '16:27'],
-      //   Y_data: [0.44, 0.40, 0.23, 0.60, 0.50, 0.53, 0.83, 0.5],
-      //   time_BT: '16:26',
-      //   threshold: 0.8
-      // }
+  import dataGraph from "./dataGraph";
+  import direction from "../../components/mining/main_bump/direction";
+  export default {
+    name: "checkPointInfo",
+    components: {dataGraph, direction},
+    props: [
+      'name',
+      'health',
+      'danger',
+      'normal_time',
+      'total_time'
+    ],
+    data() {
+      return {
+        // dg: {
+        //   data_unit: "KN",
+        //   Y_scale: "1",
+        //   X_data: ['16:20', '16:21', '16:22', '16:23', '16:24', '16:25', '16:26', '16:27'],
+        //   Y_data: [0.44, 0.40, 0.23, 0.60, 0.50, 0.53, 0.83, 0.5],
+        //   time_BT: '16:26',
+        //   threshold: 0.8
+        // }
+      }
     }
   }
-}
 </script>
 
 <style scoped>
