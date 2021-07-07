@@ -5,7 +5,7 @@
         <el-breadcrumb separator-class="el-icon-arrow-right">
           <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
           <el-breadcrumb-item :to="{ path: '/monitor'}">安全监控</el-breadcrumb-item>
-          <el-breadcrumb-item><span @click="back" style="font-weight: bold">{{ sub_system_name }}</span></el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/checkSubSys'}">{{ sub_system_name }}</el-breadcrumb-item>
           <el-breadcrumb-item>{{ check_point_name }}</el-breadcrumb-item>
         </el-breadcrumb>
       </div>
@@ -221,22 +221,26 @@
       handleCurrentChange(newPage) {
         console.log(newPage)
       },
-      back() {
-        // this.$router.go(-1);
-
-        console.log(this.sub_system_name)
-        this.$router.push({
-          path: '/checkSubSys',
-          name: '查看子系统',
-          params: {
-            key: 'key',
-            value: this.sub_system_name
-          }
-        })    }
+      // back() {
+      //   // this.$router.go(-1);
+      //
+      //   console.log(this.sub_system_name)
+      //   this.$router.push({
+      //     path: '/checkSubSys',
+      //     name: '查看子系统',
+      //     params: {
+      //       key: 'key',
+      //       value: this.sub_system_name
+      //     }
+      //   })    }
     },
     mounted() {
-      this.check_point_name = this.$route.params.value[0];
-      this.sub_system_name = this.$route.params.value[1];
+      // this.check_point_name = this.$route.params.value[0];
+      // this.sub_system_name = this.$route.params.value[1];
+      const subSystemName = window.sessionStorage.getItem("subSystemName");
+      const checkPointName = window.sessionStorage.getItem("checkPointName");
+      this.sub_system_name = subSystemName;
+      this.check_point_name = checkPointName;
     }
   }
 </script>
