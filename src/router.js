@@ -195,6 +195,20 @@ export default new Router({
                     import ('./views/beam_tube/beam.vue'),
                 hidden: false,
             }, {
+                path: '/beamDeviceList',
+                name: ' 束管检测设备列表',
+                id: 1090,
+                component: () =>
+                    import ('./views/beam_tube/beamDeviceList.vue'),
+                hidden: true,
+            }, {
+                path: '/beamCheckPoint',
+                name: ' 束管检测测点',
+                id: 1091,
+                component: () =>
+                    import ('./views/beam_tube/beamCheckPoint.vue'),
+                hidden: true,
+            }, {
                 path: '/gas',
                 name: ' 瓦斯抽放',
                 id: 110,

@@ -10,7 +10,7 @@
             <el-dropdown-item>十分钟</el-dropdown-item>
             <el-dropdown-item>一小时</el-dropdown-item>
             <el-dropdown-item>六小时</el-dropdown-item>
-            <el-dropdown-item>近 天</el-dropdown-item>
+            <el-dropdown-item>近一天</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
         <el-button type="primary" >数据分析</el-button><br>
@@ -19,8 +19,8 @@
     </el-col>
     <el-col :span="14">
       <div class="block">
-        <direction></direction>
-<!--        <dataGraph v-bind="dg"></dataGraph>-->
+        <!-- <direction></direction> -->
+       <dataGraph v-bind="dg"></dataGraph>
       </div>
 
     </el-col>
@@ -39,41 +39,45 @@
 </template>
 
 <script>
-  import dataGraph from "./dataGraph";
-  import direction from "../../components/mining/main_bump/direction";
-  export default {
-    name: "checkPointInfo",
-    components: {dataGraph, direction},
-    props: [
-      'name',
-      'health',
-      'danger',
-      'normal_time',
-      'total_time'
-    ],
-    data() {
-      return {
-        // dg: {
-        //   data_unit: "KN",
-        //   Y_scale: "1",
-        //   X_data: ['16:20', '16:21', '16:22', '16:23', '16:24', '16:25', '16:26', '16:27'],
-        //   Y_data: [0.44, 0.40, 0.23, 0.60, 0.50, 0.53, 0.83, 0.5],
-        //   time_BT: '16:26',
-        //   threshold: 0.8
-        // }
-      }
+    import dataGraph from "./dataGraph";
+    import direction from "../../components/mining/main_bump/direction";
+    export default {
+        name: "checkPointInfo",
+        components: {
+            dataGraph,
+            direction
+        },
+        props: [
+            'name',
+            'health',
+            'danger',
+            'normal_time',
+            'total_time'
+        ],
+        data() {
+            return {
+                dg: {
+                    data_unit: "KN",
+                    Y_scale: "1",
+                    X_data: ['16:20', '16:21', '16:22', '16:23', '16:24', '16:25', '16:26', '16:27'],
+                    Y_data: [0.44, 0.40, 0.23, 0.60, 0.50, 0.53, 0.83, 0.5],
+                    time_BT: '16:26',
+                    threshold: 0.8
+                }
+            }
+        }
     }
-  }
 </script>
 
 <style scoped>
-  .block {
-    height: 140px;
-    /* background-color: burlywood */
-  }
-  .el-button {
-    margin: 3px;
-    margin-left: 25px;
-    width: 120px;
-  }
+    .block {
+        height: 140px;
+        /* background-color: burlywood */
+    }
+    
+    .el-button {
+        margin: 3px;
+        margin-left: 25px;
+        width: 120px;
+    }
 </style>

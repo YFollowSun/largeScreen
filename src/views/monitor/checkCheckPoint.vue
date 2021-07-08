@@ -159,90 +159,89 @@
 </template>
 
 <script>
-
-  import direction from '@/components/mining/main_bump/direction.vue'
-  import pull_status from '@/components/mining/main_bump/pull_status.vue'
-  import pulling_speed from '@/components/mining/main_bump/pulling_speed.vue'
-  import speed_status from '@/components/mining/main_bump/speed_status.vue'
-  import checkPointInfo from "./checkPointInfo";
-  export default {
-    name: "checkCheckPoint",
-    data() {
-      return {
-        check_point_name: '',
-        sub_system_name: '',
-        // health: '健康',
-        // danger: '较低',
-        // normal_time: '9天',
-        // total_time: '20s',
-        dg1: {
-          name: '牵引方向',
-          health: '健康',
-          danger: '较低',
-          normal_time: '9天',
-          total_time: '20s',
+    import direction from '@/components/mining/main_bump/direction.vue'
+    import pull_status from '@/components/mining/main_bump/pull_status.vue'
+    import pulling_speed from '@/components/mining/main_bump/pulling_speed.vue'
+    import speed_status from '@/components/mining/main_bump/speed_status.vue'
+    import checkPointInfo from "./checkPointInfo";
+    export default {
+        name: "checkCheckPoint",
+        data() {
+            return {
+                check_point_name: '',
+                sub_system_name: '',
+                // health: '健康',
+                // danger: '较低',
+                // normal_time: '9天',
+                // total_time: '20s',
+                dg1: {
+                    name: '牵引方向',
+                    health: '健康',
+                    danger: '较低',
+                    normal_time: '9天',
+                    total_time: '20s',
+                },
+                dg2: {
+                    name: '牵引状态',
+                    health: '健康',
+                    danger: '较低',
+                    normal_time: '9天',
+                    total_time: '20s',
+                },
+                dg3: {
+                    name: '加速状态',
+                    health: '健康',
+                    danger: '较低',
+                    normal_time: '9天',
+                    total_time: '20s',
+                },
+                dg4: {
+                    name: '牵引速度',
+                    health: '健康',
+                    danger: '较低',
+                    normal_time: '9天',
+                    total_time: '20s',
+                }
+            }
         },
-        dg2: {
-          name: '牵引状态',
-          health: '健康',
-          danger: '较低',
-          normal_time: '9天',
-          total_time: '20s',
+        components: {
+            direction,
+            pull_status,
+            pulling_speed,
+            speed_status,
+            checkPointInfo
         },
-        dg3: {
-          name: '加速状态',
-          health: '健康',
-          danger: '较低',
-          normal_time: '9天',
-          total_time: '20s',
+        methods: {
+            // 监听 pagesize 改变的事件
+            handleSizeChange(newSize) {
+                console.log(newSize)
+            },
+            //监听 页码值 改变的事件
+            handleCurrentChange(newPage) {
+                console.log(newPage)
+            },
+            // back() {
+            //   // this.$router.go(-1);
+            //
+            //   console.log(this.sub_system_name)
+            //   this.$router.push({
+            //     path: '/checkSubSys',
+            //     name: '查看子系统',
+            //     params: {
+            //       key: 'key',
+            //       value: this.sub_system_name
+            //     }
+            //   })    }
         },
-        dg4: {
-          name: '牵引速度',
-          health: '健康',
-          danger: '较低',
-          normal_time: '9天',
-          total_time: '20s',
+        mounted() {
+            // this.check_point_name = this.$route.params.value[0];
+            // this.sub_system_name = this.$route.params.value[1];
+            const subSystemName = window.sessionStorage.getItem("subSystemName");
+            const checkPointName = window.sessionStorage.getItem("checkPointName");
+            this.sub_system_name = subSystemName;
+            this.check_point_name = checkPointName;
         }
-      }
-    },
-    components: {
-      direction,
-      pull_status,
-      pulling_speed,
-      speed_status,
-      checkPointInfo
-    },
-    methods: {
-      // 监听 pagesize 改变的事件
-      handleSizeChange(newSize) {
-        console.log(newSize)
-      },
-      //监听 页码值 改变的事件
-      handleCurrentChange(newPage) {
-        console.log(newPage)
-      },
-      // back() {
-      //   // this.$router.go(-1);
-      //
-      //   console.log(this.sub_system_name)
-      //   this.$router.push({
-      //     path: '/checkSubSys',
-      //     name: '查看子系统',
-      //     params: {
-      //       key: 'key',
-      //       value: this.sub_system_name
-      //     }
-      //   })    }
-    },
-    mounted() {
-      // this.check_point_name = this.$route.params.value[0];
-      // this.sub_system_name = this.$route.params.value[1];
-      const subSystemName = window.sessionStorage.getItem("subSystemName");
-      const checkPointName = window.sessionStorage.getItem("checkPointName");
-      this.sub_system_name = subSystemName;
-      this.check_point_name = checkPointName;
     }
-  }
 </script>
 
 <style scoped>
@@ -255,30 +254,30 @@
         position: relative;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
-
+    
     .block {
         height: 140px;
         /* background-color: burlywood */
     }
-
+    
     .el-button {
         margin: 3px;
         margin-left: 25px;
         width: 120px;
     }
-
+    
     .text {
         font-size: 13px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-weight: bolder;
         margin-left: 50px;
     }
-
+    
     .info {
         font-size: 13px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
-
+    
     .el-card {
         background: #ffffff;
         border-radius: 8px;
