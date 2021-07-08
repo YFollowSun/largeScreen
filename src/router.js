@@ -242,11 +242,27 @@ export default new Router({
                 hidden: true,
             }, {
                 path: '/gas',
-                name: ' 瓦斯抽放',
+                name: ' 瓦斯抽放设备',
                 id: 110,
                 component: () =>
                     import ('./views/gas/gas.vue'),
                 hidden: false,
+
+            }, {
+                path: '/gasSubDeviceList',
+                name: ' 瓦斯抽放子设备',
+                id: 1101,
+                component: () =>
+                    import ('./views/gas/gasSubDeviceList.vue'),
+                hidden: true,
+
+            }, {
+                path: '/gasCheckPoint',
+                name: ' 瓦斯抽放测点',
+                id: 1102,
+                component: () =>
+                    import ('./views/gas/gasCheckPoint.vue'),
+                hidden: true,
 
             }, {
                 path: '/personnel_location',
@@ -254,7 +270,7 @@ export default new Router({
                 id: 111,
                 component: () =>
                     import ('./views/personnel_location/location.vue'),
-                hidden: location,
+                hidden: false,
 
             }
         ]
