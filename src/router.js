@@ -180,6 +180,22 @@ export default new Router({
                 hidden: false,
 
             }, {
+                path: '/powerDeviceList',
+                name: '供电系统设备列表',
+                id: 1071,
+                component: () =>
+                    import ('./views/power_supply/powerDeviceList.vue'),
+                hidden: true,
+
+            }, {
+                path: '/powerCheckPoint',
+                name: '供电系统设备测点',
+                id: 1072,
+                component: () =>
+                    import ('./views/power_supply/powerCheckPoint.vue'),
+                hidden: true,
+
+            }, {
                 path: '/auxiliary_transport',
                 name: ' 辅运输系统',
                 id: 108,
