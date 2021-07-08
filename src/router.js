@@ -55,15 +55,31 @@ export default new Router({
             }, {
                 path: '/checkSubSys',
                 name: '查看子系统',
+                id: 1020,
                 hidden: true,
                 component: () =>
                     import ('./views/monitor/checkSubSys.vue')
             }, {
                 path: '/checkCheckPoint',
                 name: '查看测点数据',
+                id: 1021,
                 hidden: true,
                 component: () =>
                     import ('./views/monitor/checkCheckPoint.vue')
+            }, {
+                path: '/monitorDetail',
+                name: '查看测点数据',
+                id: 1022,
+                hidden: true,
+                component: () =>
+                    import ('./views/monitor/detail.vue')
+            }, {
+                path: '/monitorThreshold',
+                name: '查看超标数据',
+                id: 1024,
+                hidden: true,
+                component: () =>
+                    import ('./views/monitor/monitorThreshold.vue')
             }, {
                 path: '/transportation',
                 name: ' 主运输系统',

@@ -3,10 +3,9 @@
     <div>
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/transportation'}">主运输系统</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/transportation'}">系统数据</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/coalCentral'}">煤中央皮带</el-breadcrumb-item>
-            <el-breadcrumb-item :to="{ path: '/belt_body'}">皮带本体</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/monitor'}">安全监控</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/checkSubSys'}">{{ sub_system_name }}</el-breadcrumb-item>
+            <el-breadcrumb-item :to="{ path: '/checkCheckPoint'}">{{ check_point_name }}</el-breadcrumb-item>
             <el-breadcrumb-item >详细数据</el-breadcrumb-item>
         </el-breadcrumb>
         <span class="text">数据测点：</span>
@@ -95,8 +94,8 @@
         name: "detail",
         data() {
             return {
-                check_point_name: '',
                 sub_system_name: '',
+                check_point_name: '',
                 checkpoints: [{
                     id: 1,
                     name: '运行'
@@ -308,6 +307,14 @@
                     this.$refs.moreDialog.init(id);
                 });
             }
+        },
+        mounted() {
+            // this.check_point_name = this.$route.params.value[0];
+            // this.sub_system_name = this.$route.params.value[1];
+            const subSystemName = window.sessionStorage.getItem("subSystemName");
+            const checkPointName = window.sessionStorage.getItem("checkPointName");
+            this.sub_system_name = subSystemName;
+            this.check_point_name = checkPointName;
         },
         components: {
             detailDia,

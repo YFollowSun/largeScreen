@@ -6,12 +6,9 @@
     export default {
         name: "dataGraph",
         props: [
-            'data_unit',
-            'Y_scale',
             'X_data',
             'Y_data',
-            'time_BT',
-            'threshold',
+            'threshold'
         ],
         data() {
             return {
@@ -30,14 +27,22 @@
             // 更新图表
             updateChart() {
                 const option = {
+                    // title: [{
+                    //     text: '超出阈值：0.83',
+                    //     right: '5%',
+                    //     textStyle: {
+                    //         fontSize: 12,
+                    //         color: "rgb(255, 0, 0)",
+                    //     },
+                    // }],
                     tooltip: {
                         trigger: 'axis',
                     },
-                    legend: {
-                        data: [this.data_unit]
-                    },
+                    // legend: {
+                    //     data: [this.data_unit]
+                    // },
                     grid: {
-                        top: '15%',
+                        top: '4%',
                         left: '1%',
                         right: '4%',
                         bottom: '3%',
