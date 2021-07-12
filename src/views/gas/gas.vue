@@ -1,6 +1,15 @@
 <template>
-    <div>
-        <el-card>
+	<div>
+		<!--标签-->
+		<el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+			<el-tab-pane label="系统数据" name="first">
+				<!-- 系统数据页面 -->
+				<el-breadcrumb separator-class="el-icon-arrow-right">
+					<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					<el-breadcrumb-item>瓦斯抽放设备</el-breadcrumb-item>
+					<el-breadcrumb-item>系统数据</el-breadcrumb-item>
+				</el-breadcrumb>
+                <el-card>
             <el-table :data="deviceData" style="width: 100%" border stripe>
                 <el-table-column type="index" label="#" header-align="center" align="center" width="60">
                 </el-table-column>
@@ -23,8 +32,22 @@
 <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage1" :page-sizes="[1, 2, 5, 10]" :page-size="1" layout="total, sizes, prev, pager, next, jumper" :total="5">
 </el-pagination>
 </el-card>
-</div>
+			</el-tab-pane>
+			<el-tab-pane label="数据标准" name="second">
+				<!-- 数据标准页面 -->
+				<el-breadcrumb separator-class="el-icon-arrow-right">
+					<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					<el-breadcrumb-item>瓦斯抽放设备</el-breadcrumb-item>
+					<el-breadcrumb-item>数据标准</el-breadcrumb-item>
+				</el-breadcrumb>
+				
+			</el-tab-pane>
+		</el-tabs>
+	
+	</div>
+
 </template>
+
 
 
 <script>
@@ -32,6 +55,8 @@
         name: "gas",
         data() {
             return {
+                // 被激活页签的名称
+				activeName: "first",
                 subSystem_name: '',
                 deviceData: [{
                     device_name: '1#瓦斯抽放泵',

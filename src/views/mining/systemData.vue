@@ -31,7 +31,7 @@
                   </div>
                 </el-col>
                 <el-col :span="12">
-                  <div v-for="item in options"  style="justify-content:space-evenly;">
+                  <div v-for="item in options"  :key="item.index" style="justify-content:space-evenly;">
                     <span style="font-size: 14px; ">{{item.name}}</span>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style="font-size: 14px;">{{item.num}}</span>

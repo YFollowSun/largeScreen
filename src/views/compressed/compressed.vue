@@ -80,115 +80,136 @@
 
 
 <script>
-    import watchDevice from './watchDevice.vue'
-    export default {
-        name: "compressed",
-        data() {
-            return {
-                // 被激活页签的名称
-                activeName: 'first',
-                miningoptions: [{
-                    title: '总数据量',
-                    num: '1.2T'
-                }, {
-                    title: '系统个数',
-                    num: '8个'
-                }, {
-                    title: '子系统系统个数',
-                    num: '12个'
-                }, {
-                    title: '设备个数',
-                    num: '125个'
-                }],
-                systemData: [{
-                    subsystem: '综掘机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    subsystem: '转载机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    subsystem: '装煤机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    subsystem: '局部扇风机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    subsystem: '锚索钻机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }],
-                options: [{
-                    value: '选项1',
-                    label: '煤中央皮带'
-                }, {
-                    value: '选项2',
-                    label: '主平硐皮带'
-                }, {
-                    value: '选项3',
-                    label: '上仓皮带'
-                }],
-                deviceData: [{
-                    device_name: '皮带本体',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '头部1#驱动电机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '头部2#驱动电机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '头部3#驱动电机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }, {
-                    device_name: '头部4#驱动电机',
-                    describe: 'YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86',
-                    remark: '暂无'
-                }],
-                watchVisible: false,
-                currentPage4: 4,
-                value: ''
-            }
+import watchDevice from "./watchDevice.vue";
+export default {
+  name: "compressed",
+  data() {
+    return {
+      // 被激活页签的名称
+      activeName: "first",
+      miningoptions: [
+        {
+          title: "总数据量",
+          num: "1.2T",
         },
-        methods: {
-            // Tab页签点击事件的处理函数
-            handleClick(tab, event) {},
-            watchDevice(row) {
-                this.watchVisible = true;
-                this.$nextTick(() => {
-                    this.$refs.watchdevice.init();
-                });
-            },
-            handleSizeChange(newSize) {
-                console.log(newSize)
-            },
-            //监听 页码值 改变的事件
-            handleCurrentChange(newPage) {
-                console.log(newPage)
-            },
+        {
+          title: "系统个数",
+          num: "8个",
         },
-        components: {
-            watchDevice
-        }
-    }
+        {
+          title: "子系统系统个数",
+          num: "12个",
+        },
+        {
+          title: "设备个数",
+          num: "125个",
+        },
+      ],
+      systemData: [
+        {
+          subsystem: "综掘机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          subsystem: "转载机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          subsystem: "装煤机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          subsystem: "局部扇风机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          subsystem: "锚索钻机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+      ],
+      options: [
+        {
+          value: "选项1",
+          label: "煤中央皮带",
+        },
+        {
+          value: "选项2",
+          label: "主平硐皮带",
+        },
+        {
+          value: "选项3",
+          label: "上仓皮带",
+        },
+      ],
+      deviceData: [
+        {
+          device_name: "皮带本体",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          device_name: "头部1#驱动电机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          device_name: "头部2#驱动电机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          device_name: "头部3#驱动电机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+        {
+          device_name: "头部4#驱动电机",
+          describe: "YB2-5002-4型，功率900kW，U=6kV,I=105.1A，功率因数0.86",
+          remark: "暂无",
+        },
+      ],
+      watchVisible: false,
+      currentPage4: 4,
+      value: "",
+    };
+  },
+  methods: {
+    // Tab页签点击事件的处理函数
+    handleClick(tab, event) {},
+    watchDevice(row) {
+      this.watchVisible = true;
+      this.$nextTick(() => {
+        this.$refs.watchdevice.init();
+      });
+    },
+    handleSizeChange(newSize) {
+      console.log(newSize);
+    },
+    //监听 页码值 改变的事件
+    handleCurrentChange(newPage) {
+      console.log(newPage);
+    },
+  },
+  components: {
+    watchDevice,
+  },
+};
 </script>
 
 
 <style scoped>
-    .coalblock {
-        width: 115px;
-        height: 77px;
-        border: solid 1px #dcdfe6;
-        padding-top: 20px;
-        margin-left: 25px;
-        text-align: center;
-        display: inline-block;
-    }
+.coalblock {
+  width: 115px;
+  height: 77px;
+  border: solid 1px #dcdfe6;
+  padding-top: 20px;
+  margin-left: 25px;
+  text-align: center;
+  display: inline-block;
+}
 </style>
