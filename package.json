@@ -11,7 +11,10 @@
     "element-ui": "^2.15.2",
     "node-modules": "^1.0.1",
     "vue": "^2.6.10",
+    "vue-drag-resize": "^1.5.4",
+    "vue-draggable-resizable": "^2.3.0",
     "vue-router": "^3.0.3",
+    "vuedraggable": "^2.24.3",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

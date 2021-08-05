@@ -1,77 +1,28 @@
-<template>
- 
-    <div class="helloword">
-    <VueDragResize :isActive="true" :w="200" :h="200" v-on:resizing="resize" :parent="true" v-on:dragging="resize">
-      <!--将这个div的宽高动态设置==VueDrangResize的宽高这样可实时完成缩放-->
-       <div id="chart" :style="{width: + vw+ 'px',height:+vh+'px'}"></div>
-       <!-- <div id="chart" :style="chartStyle"></div> -->
-       <!-- <div id="chart" style="width:100%;height:100%;"></div> -->
-             <!-- <div id="chart" style="width:200px;height:200px;"></div> -->
-        <!-- <div class="box"  id="chart" :style="{width: +vw+ 'px',height:+vh+'px'}"></div> -->
-         <!-- <div id="chart"></div> -->
-        <!-- <div id="chart" :style="chartStyle"></div> -->
-       <!-- <div :style="{width:+ vw+'px',height:+vh+'px'}" id="chart"></div> -->
-         <!-- <power style="width:100%;height:100%;position:absolute;"></power> -->
-       
-    </VueDragResize>
-
-  </div>
-</template>
-
+ <!-- <template>
+     <div class="com-chart" ref="power"></div> 
+</template>-->
 <script>
-// import VueDraggableResizable from 'vue-draggable-resizable'
-  import VueDragResize from 'vue-drag-resize';
-  import power from '@/components/mining/power.vue'
-    import coal_output from '@/components/mining/coal_output.vue'
-export default {
-  name: "industrialVideo",
-  data(){
-    return{
-        vw: 0,
-      vh: 0,
-      top: 0,
-      left: 0,
-      chartStyle:{
-        width:"",
-        height:""
-      }
+    export default {
+        name: "power",
+        data() {
+            return {
+                myChart: null
 
-    }
-  },
-  mounted(){
-    this.$nextTick(()=>{
-      this.initChart()
-    })
- 
-    },
-  watch:{
-    vw(newName, oldName) {
-    this.myChart.resize();
-  
-      console.log(this.chartStyle.width)
+            }
+        },
+        mounted() {
+            this.initCharts();
+            this.updateChart();
+        },
+        methods: {
+            // 初始化图表
+            initCharts() {
+                this.myChart = this.$echarts.init(document.getElementById('chart'))
 
-    },
-    vh(newName, oldName) {
-      this.myChart.resize();
-  },
-  },
-  created() {
-    this.vw = 200 + "px";
-    this.vh = 200 + "px";
-  },
- methods: {
-    resize(newRect) {
-      this.vw = newRect.width;
-      this.vh = newRect.height;
-      this.top = newRect.top;
-      this.left = newRect.left;
-      // this.$echarts.resize;
-      // this.myChart.resize;
-    },
-
-    initChart(){
-      this.myChart = this.$echarts.init(document.getElementById('chart'));
-      this.myChart.setOption({
+            },
+            // 更新图表
+            updateChart() {
+                const option = {
                     title: {
                         text: '采煤机平均功率',
                         textStyle: {
@@ -163,31 +114,14 @@ export default {
                         },
                         data: [500, 400, 200, 600, 500, 800, 600]
                     }]
-                });
-
-    },
-    // resize(){
-    //   this.myChart.resize;
-    // }
-  },
-  components: {
-          VueDragResize,
-           power,
-            coal_output,
-            // VueDraggableResizable 
-      },
-
-
-}
+                };
+                this.myChart.setOption(option);
+            }
+        }
+    }
 </script>
-
 <style scoped>
-.box{
-position: relative;
-}
-
-
+    .com-chart {
+        height: 145px;
+    }
 </style>
-
-    
-      

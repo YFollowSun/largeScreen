@@ -29,6 +29,7 @@
 <el-col :span="20">
     <!-- 展示   -->
     <el-main>
+        <iframe v-if="this.$route.path=='/'" id="content" frameborder="0" src="http://localhost:50401/" width="1100px" height="800px"></iframe>
         <router-view></router-view>
     </el-main>
 </el-col>
@@ -95,6 +96,11 @@
                     '209': require('@/assets/img/209.png')
                 }
             }
+        },
+        mounted(){
+            console.log(111)
+            console.log(this.$route.path)
+
         },
         methods: {
             handleOpen(key, keyPath) {

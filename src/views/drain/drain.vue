@@ -69,6 +69,7 @@
                 currentPage4: 4
             }
         },
+      
         methods: {
             handleSizeChange(newSize) {
                 console.log(newSize)
