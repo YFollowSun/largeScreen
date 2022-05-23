@@ -4,56 +4,83 @@ html,
 body,
 #app {
     height: 100%;
+    width: 100%;
     margin: 0px;
     padding: 0px;
-    min-width: 1366px;
-}
-
-.el-breadcrumb {
-    padding: 15px 0 15px 10px;
-    font-size: 13px;
-}
-
-.el-card {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15) !important;
-}
-
-.el-footer {
-    background-color: #444C5B;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 12px;
-    color: #ffffff;
-}
-
-.el-form {
-    margin-top: 12px;
-}
-
-.divi {
-    display: block;
-    height: 1px;
-    width: 100%;
-    margin: 24px 0;
-    background-color: #dcdfe6;
     position: relative;
+    /* min-width: 1366px; */
+    overflow: hidden;
+    box-sizing: border-box;
 }
-
-.centered {
-    margin: 0 auto;
+#tempChart{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
 }
-
-.coalblock {
-    width: 115px;
-    height: 77px;
-    border: solid 1px #dcdfe6;
-    padding-top: 20px;
-    margin-left: 25px;
-    text-align: center;
-    display: inline-block;
+#five{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
 }
-
-.el-select {
-    margin-bottom: 10px;
+#four{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
+}
+#three{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
+}
+#two{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
+}
+#one{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
+}
+#nowTime{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
+}
+#rulerChart{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* min-width: 1366px; */
+    position: relative;
+    overflow: hidden;  
 }

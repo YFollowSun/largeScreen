@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.15.2",
+    "koa": "^2.13.4",
     "node-modules": "^1.0.1",
     "vue": "^2.6.10",
+    "vue-axios": "^3.4.0",
     "vue-drag-resize": "^1.5.4",
     "vue-draggable-resizable": "^2.3.0",
     "vue-router": "^3.0.3",
@@ -30,5 +33,14 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "description": "大屏编辑项目",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/qinnamin/large_screen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
